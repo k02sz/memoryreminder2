@@ -13,12 +13,15 @@ memoryreminder is a simple web application designed to help users learn and reme
 
 -[x] edit words
 
--[x] adjust backend
+-[x] backend
+
+-[ ] delete words
 
 -[ ] points system
 
 -[ ] settings page
 
+-[ ] implement regex
 - ...
 
 
