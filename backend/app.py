@@ -43,6 +43,7 @@ def api():
     frecord = getFirst()
     print(frecord)
     response = {
+        'id': int(frecord.id),
         'pytanie': str(frecord), 
         'odpowiedz': str(frecord.odpowiedz), 
         'kiedy': str(frecord.kiedy), 
@@ -64,3 +65,20 @@ def answer():
         db.session.commit()
         print('success no')
     return jsonify(data)
+
+@app.route('/all', methods=['GET'])
+def all():
+    all_records = Gra.query.order_by(asc(Gra.kiedy)).all()
+    records_list = []
+
+    for record in all_records:
+        record_dict = {
+            'id': record.id,
+            'pytanie': record.pytanie,
+            'odpowiedz': record.odpowiedz,
+            'kiedy': record.kiedy.strftime('%Y-%m-%d %H:%M:%S'),  # Format the datetime
+            'streak': record.streak
+        }
+        records_list.append(record_dict)
+
+    return jsonify(records_list)

@@ -88,6 +88,15 @@ const Hero = () => {
           </div>
           }
         </div>}
+        <div>
+          <div className='flex justify-center p-10'>
+            <a href="/database">
+              <button className='buttonA'>
+                All Words
+              </button>
+            </a>
+          </div>
+        </div>
     </section>
   )
   }
