@@ -34,7 +34,28 @@ const Database = () => {
     }
     fetchData()
   };
-
+  const handleClickDelete = async () => {
+    setShowModal(false)
+    try {
+      const response = await fetch('http://localhost:5000/delete', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({id: selectedRow.id})
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to send data');
+      }
+  
+      const jsonData = await response.json();
+      setData(jsonData);
+    } catch (error) {
+      console.error(error);
+    }
+    fetchData()
+  };
   const openModal = (row) => {
     setSelectedRow(row);
     setShowModal(true);
@@ -103,10 +124,11 @@ const Database = () => {
                       Edit
                     </h3>
                     <button
-                      className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
-                      onClick={() => setShowModal(false)}
-                    >
-                    </button>
+                    className="float-right rounded text-red-500 bg-red-300 font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    type="button"
+                    onClick={handleClickDelete}>
+                    Delete
+                  </button>
               </div>
               <div className="relative p-6 flex-auto">
                 <div>

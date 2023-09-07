@@ -68,7 +68,7 @@ def answer():
 
 @app.route('/all', methods=['GET'])
 def all():
-    all_records = Gra.query.order_by(asc(Gra.kiedy)).all()
+    all_records = Gra.query.order_by(asc(Gra.id)).all()
     records_list = []
 
     for record in all_records:
@@ -96,3 +96,27 @@ def edit():
     rekord.odpowiedz = odpowiedz_value
     db.session.commit()
     return('Edited')
+
+@app.route('/add', methods=['POST'])
+def add():
+    newdata = request.json
+    json_string = str(newdata).replace("'", "\"")
+    finalnewdata = json.loads(json_string)
+    newpytanie_value = finalnewdata['pytanie']
+    newodpowiedz_value = finalnewdata['odpowiedz']
+    aktczas = func.now()
+    newrekord = Gra(pytanie=newpytanie_value,odpowiedz=newodpowiedz_value, kiedy=aktczas, streak=0)
+    db.session.add(newrekord)
+    db.session.commit()
+    return('Added')
+
+@app.route('/delete', methods=['POST'])
+def delete():
+    getID = request.json
+    strrjson = str(getID).replace("'", "\"")
+    getIDdata = json.loads(strrjson)
+    finalID = getIDdata['id']
+    todelete = Gra.query.get_or_404(finalID)
+    db.session.delete(todelete)
+    db.session.commit()
+    return('Deleted')

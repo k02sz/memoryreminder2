@@ -14,9 +14,11 @@ const Footer = () => {
                             Home
                         </button>
                     </a>
-                    <button className='buttonA'>
-                        Settings
-                    </button>
+                    <a href='/add'>
+                        <button className='buttonA'>
+                            Add Words
+                        </button>
+                    </a>
                 </ul>
             </div>
         </footer>
