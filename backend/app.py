@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 from sqlalchemy import DateTime, asc, desc
 import os
 from sqlalchemy.sql import func
-
+import json
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -82,3 +82,17 @@ def all():
         records_list.append(record_dict)
 
     return jsonify(records_list)
+
+@app.route('/edit', methods=['POST'])
+def edit():
+    editeddata = request.json
+    json_string = str(editeddata).replace("'", "\"")
+    finaldata = json.loads(json_string)
+    id_value = finaldata['id']
+    pytanie_value = finaldata['pytanie']
+    odpowiedz_value = finaldata['odpowiedz']
+    rekord = Gra.query.get_or_404(id_value)
+    rekord.pytanie = pytanie_value
+    rekord.odpowiedz = odpowiedz_value
+    db.session.commit()
+    return('Edited')
