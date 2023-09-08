@@ -1,5 +1,6 @@
 {
-  "name": "my-dict",
+  "name": "memoryreminder",
+  "homepage": "https://k02zs.pl",
   "private": true,
   "version": "0.0.0",
   "type": "module",
