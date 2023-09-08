@@ -11,7 +11,7 @@ const Hero = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://192.168.1.61:5000/api');
+      const response = await fetch('/backend/api');
       if (!response.ok) {
         throw new Error('Failed to fetch data');
       }
@@ -23,7 +23,7 @@ const Hero = () => {
   };
   const sendData = async (value) => {
     try {
-      const response = await fetch('http://192.168.1.61:5000/answer', {
+      const response = await fetch('/backend/answer', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
