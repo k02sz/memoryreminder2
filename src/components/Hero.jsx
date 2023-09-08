@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-
+import { Link } from 'react-router-dom'
 
 const Hero = () => {
   const [data, setData] = useState(null);
@@ -90,11 +90,11 @@ const Hero = () => {
         </div>}
         <div>
           <div className='flex justify-center p-10'>
-            <a href="/database">
+            <Link to="/database">
               <button className='buttonA'>
                 All Words
               </button>
-            </a>
+            </Link>
           </div>
         </div>
     </section>

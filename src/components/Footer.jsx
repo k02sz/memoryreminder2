@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -9,16 +10,16 @@ const Footer = () => {
                     © 2023 Kacper Szymecki 
                 </span>
                 <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
-                    <a href="/">
+                    <Link to="/">
                         <button className='buttonA'>
                             Home
                         </button>
-                    </a>
-                    <a href='/add'>
+                    </Link>
+                    <Link to='/add'>
                         <button className='buttonA'>
                             Add Words
                         </button>
-                    </a>
+                    </Link>
                 </ul>
             </div>
         </footer>
