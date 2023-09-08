@@ -11,7 +11,7 @@ const Addword = () => {
         const pytValue = newPyt.current.value;
         const odpValue = newOdp.current.value;
         try {
-          const response = await fetch('http://localhost:5000/add', {
+          const response = await fetch('http://192.168.1.61:5000/add', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
