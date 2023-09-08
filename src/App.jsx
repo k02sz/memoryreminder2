@@ -10,7 +10,7 @@ import Addword from './pages/Addword';
 const App = () => {
   return (
     <div className="min-h-screen bg-slate-800">
-      <Router>
+      <Router basename={"/"}>
           <header>
               <TopBar />
           </header>
