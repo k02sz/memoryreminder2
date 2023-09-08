@@ -42,6 +42,11 @@ def getFirst():
 def api():
     frecord = getFirst()
     print(frecord)
+    response_headers = {
+        'Access-Control-Allow-Origin': '*',  # Allow requests from any origin
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',  # Allowed HTTP methods
+        'Access-Control-Allow-Headers': 'Content-Type',  # Allowed request headers
+    }
     response = {
         'id': int(frecord.id),
         'pytanie': str(frecord), 
