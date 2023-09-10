@@ -14,7 +14,7 @@ const Database = () => {
     const odpValue = changedOdp.current.value;
     setShowModal(false)
     try {
-      const response = await fetch('/backend/edit', {
+      const response = await fetch('backend/edit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ const Database = () => {
   const handleClickDelete = async () => {
     setShowModal(false)
     try {
-      const response = await fetch('/backend/delete', {
+      const response = await fetch('backend/delete', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -64,7 +64,7 @@ const Database = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('/backend/all');
+      const response = await fetch('backend/all');
       if (!response.ok) {
         throw new Error('Failed to fetch data');
       }
