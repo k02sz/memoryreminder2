@@ -14,6 +14,8 @@ memoryreminder is a simple web application designed to help users learn and reme
 
 -[ ] 404 on refresh
 
+-[ ] proper display on mobile browsers
+
 ## yet todo
 
 -[ ] cybersecurity (database)
