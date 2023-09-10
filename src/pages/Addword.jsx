@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRef, useState} from 'react';
-
+import { Link } from 'react-router-dom';
 const Addword = () => {
     const [defaultmessage, setDefaultmessage] = useState('');
     const [data, setData] = useState([]);
