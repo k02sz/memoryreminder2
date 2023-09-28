@@ -1,2 +1,6 @@
 node_modules
 backend/venv/
+dist/assets/index-85a0e3c7.js
+dist/assets/index-adaf8d01.css
+dist/index.html
+dist/vite.svg
